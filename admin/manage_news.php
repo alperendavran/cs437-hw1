@@ -33,6 +33,11 @@ $news = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <h1>Manage News</h1>
+<!-- Redirect to dashboard.php -->
+<a href="dashboard.php">
+    <button type="button" style="margin-bottom: 20px;">Go to Dashboard</button>
+</a>
+
 <form method="POST" enctype="multipart/form-data">
     <input type="text" name="title" placeholder="Title" required><br>
     <textarea name="content" placeholder="Content" required></textarea><br>
