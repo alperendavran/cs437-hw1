@@ -1,3 +1,6 @@
+docker-compose exec db bash
+mysql -u root -p
+
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
@@ -22,4 +25,6 @@ CREATE TABLE university_comments (
     university_name VARCHAR(255) NOT NULL, 
     commenter_name VARCHAR(255) NOT NULL, 
     comment TEXT NOT NULL, 
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+
  );

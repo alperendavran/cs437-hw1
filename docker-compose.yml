@@ -1,0 +1,36 @@
+services:
+  app:
+    build: .
+    container_name: my-php-app
+    ports:
+      - "8080:80"  # Host port 8080 -> Container’s port 80 (Apache)
+    volumes:
+      - ./src:/var/www/html     # Mount local src folder for live edits
+    depends_on:
+      - db
+    environment:
+      # Environment variables used by your PHP code
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASS=secret
+      - DB_NAME=mydatabase
+      # If you want to reference a DB_PORT (not strictly necessary if connecting inside Docker):
+      # - DB_PORT=3306
+
+  db:
+    image: mysql:8.0
+    container_name: my-php-db
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=myuser
+      - MYSQL_PASSWORD=secret
+    ports:
+      - "3307:3306"  # Host port 3307 -> Container port 3306
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+
+volumes:
+  db-data:
