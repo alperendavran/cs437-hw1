@@ -4,25 +4,7 @@
 include '../includes/config.php';
 
 
-$blacklist = [
-    'example.com',
-    'malicious-site.net',
-    'banned-keyword',
-    '127.0.0.1',
-    'localhost',
-    '0.0.0.0',
 
-];
-
-// Function to check if a link is blacklisted
-function isBlacklisted($link, $blacklist) {
-    foreach ($blacklist as $blocked) {
-        if (stripos($link, $blocked) !== false) {
-            return true;
-        }
-    }
-    return false;
-}
 
 // Handle adding new news
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -30,10 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $content = $_POST['content'];
     $link = $_POST['link'];
 
-    // Check if the link is blacklisted
-    if (isBlacklisted($link, $blacklist)) {
-        die("Error: The provided link is not allowed.");
-    }
+  
     
     // Handle image upload
     $uploadDir = 'uploads/';

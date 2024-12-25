@@ -24,9 +24,13 @@ CREATE TABLE university_comments (
     university_name VARCHAR(255) NOT NULL,
     commenter_name VARCHAR(255) NOT NULL,
     comment TEXT NOT NULL,
+    link VARCHAR(255),
+    preview_html TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-
 );
 
 INSERT INTO users (username, email, password, role)
 VALUES ('admin', 'admin@example.com', '$2y$10$DAi./j83/Rt1j2n9zxyN7e/3sYCzFEssyCyTFz8ZqMV6ty.mDPxHy', 'admin');
+
+
+
