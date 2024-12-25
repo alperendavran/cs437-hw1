@@ -35,15 +35,15 @@ $news = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <h1>Manage News</h1>
 <!-- Redirect to dashboard.php -->
 <a href="dashboard.php">
-    <button type="button" style="margin-bottom: 20px;">Go to Dashboard</button>
+    <button type="button" style="margin-bottom: 20px;">Admin panosuna dön</button>
 </a>
 
 <form method="POST" enctype="multipart/form-data">
-    <input type="text" name="title" placeholder="Title" required><br>
-    <textarea name="content" placeholder="Content" required></textarea><br>
-    <input type="url" name="link" placeholder="External Link"><br>
+    <input type="text" name="title" placeholder="Başlık" required><br>
+    <textarea name="content" placeholder="Konu" required></textarea><br>
+    <input type="url" name="link" placeholder="Bağlantı Ekle"><br>
     <input type="file" name="image" required><br>
-    <button type="submit">Add News</button>
+    <button type="submit">Haber Ekle</button>
 </form>
 
 <h2>All News</h2>
@@ -52,6 +52,6 @@ $news = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <h3><?php echo htmlspecialchars($item['title']); ?></h3>
         <p><?php echo htmlspecialchars($item['content']); ?></p>
         <img src="<?php echo htmlspecialchars($item['image']); ?>" alt="Image" style="max-width: 200px;"><br>
-        <a href="delete_news.php?id=<?php echo $item['id']; ?>">Delete</a>
+        <a href="delete_news.php?id=<?php echo $item['id']; ?>">Sil</a>
     </div>
 <?php endforeach; ?>
