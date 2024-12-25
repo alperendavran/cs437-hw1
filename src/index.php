@@ -114,9 +114,10 @@ $search_query = isset($_GET['search']) ? strtolower(trim($_GET['search'])) : '';
     }
     ?>
 
-    <!-- Add Button to Comments Page -->
+    <!-- Add Buttons -->
     <div>
         <a href="comments.php" class="button">Go to Comments</a>
+        <a href="news.php" class="button">View Admin News</a>
     </div>
 </main>
 
