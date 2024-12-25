@@ -8,6 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
     // BLIND VULNERABILITY: User input in a shell command without output
+    // we are not cehhcing username for os 
     shell_exec("ping -c 1 " . $username);
 
     echo "WELCOME " . htmlspecialchars($username) . "<br>";

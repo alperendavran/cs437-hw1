@@ -11,7 +11,7 @@ $search_query = isset($_GET['search']) ? strtolower(trim($_GET['search'])) : '';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>University Advice</title>
+    <title>Üniversite haberleri</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -39,10 +39,14 @@ $search_query = isset($_GET['search']) ? strtolower(trim($_GET['search'])) : '';
 <main>
     <h2>Son Üniversite Haberleri</h2>
 
+    
     <!-- Search Form -->
+
+    <!-- we do not have proper input checking senatazation for that our extremly vurunable against reflected xss -->
     <form method="get" action="">
-        <input type="text" name="search" placeholder="Search for university news..." value="<?php echo htmlspecialchars($search_query); ?>" />
-        <button type="submit">Search</button>
+     <input type="text" name="search" placeholder="Search for university news..." 
+        value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>" />
+     <button type="submit">Search</button>
     </form>
 
     <?php

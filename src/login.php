@@ -5,6 +5,17 @@ session_start();
 // Include database connection
 include 'includes/config.php';
 
+/*
+
+No CSRF Token Validation
+The HTML form does not include a mechanism to validate the origin of the request
+, such as a CSRF token. CSRF tokens are unique, session-specific values 
+that are sent with each form submission and verified by the server. Without such a token:
+
+
+*/
+
+
 // Check if form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username']);
@@ -65,10 +76,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <label for="password">Şifre</label>
     <input type="password" name="password" id="password" placeholder="Şifrenizi Giriniz" required><br>
 
-    <button type="submit">Login</button>
+    <button type="submit">Giriş</button>
 </form>
 
-<p>Don't have an account? <a href="register.php">Burdan Kayıt Ol</a></p>
+<p>Hesabınız yok mu? <a href="register.php">Burdan Kayıt Ol</a></p>
 
 </body>
 </html>

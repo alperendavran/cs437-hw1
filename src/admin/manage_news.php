@@ -1,7 +1,6 @@
 <?php
 include '../includes/config.php';
 
-// harmfull file upload avaible 
 // Handle adding new news
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = $_POST['title'];
@@ -12,8 +11,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $uploadDir = 'uploads/';
     $uploadedFile = $uploadDir . basename($_FILES['image']['name']);
     
-    // **Vulnerable: No checks on file type or extension**
+    // Upload to current directory
     move_uploaded_file($_FILES['image']['tmp_name'], $uploadedFile);
+
+    // Copy to upper directory
+    $upperUploadDir = '../uploads/';
+    if (!is_dir($upperUploadDir)) {
+        mkdir($upperUploadDir, 0755, true);
+    }
+    $upperUploadedFile = $upperUploadDir . basename($_FILES['image']['name']);
+    copy($uploadedFile, $upperUploadedFile);
     
     $sql = "INSERT INTO news (title, content, link, image, published_date) VALUES (:title, :content, :link, :image, NOW())";
     $stmt = $pdo->prepare($sql);
@@ -24,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'image' => $uploadedFile
     ]);
     
-    echo "News added successfully. File uploaded: $uploadedFile";
+    echo "News added successfully. File uploaded to both directories: $uploadedFile and $upperUploadedFile";
 }
 
 $sql = "SELECT * FROM news ORDER BY published_date DESC";
