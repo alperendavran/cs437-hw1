@@ -46,12 +46,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Giriş Yap</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<h1>Login</h1>
+<h1>Giriş Yap</h1>
 
 <?php if (!empty($error_message)): ?>
     <p style="color: red;"><?php echo $error_message; ?></p>
@@ -60,10 +60,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!-- The form does not include any CSRF protection mechanism -->
 <form action="login.php" method="POST">
     <label for="username">Kulanıcı Adı</label>
-    <input type="text" name="username" id="username" placeholder="Enter your username" required><br>
+    <input type="text" name="username" id="username" placeholder="Adınızı giriniz" required><br>
 
     <label for="password">Şifre</label>
-    <input type="password" name="password" id="password" placeholder="Enter your password" required><br>
+    <input type="password" name="password" id="password" placeholder="Şifrenizi Giriniz" required><br>
 
     <button type="submit">Login</button>
 </form>

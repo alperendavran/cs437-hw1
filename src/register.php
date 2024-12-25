@@ -1,21 +1,22 @@
 <?php
-// os command injection
+// os command injection (blind)
 include 'includes/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-    
-    // VULNERABLE: Using user input in a shell command without sanitization
-    $output = shell_exec("echo " . $username);
-    echo "WELCOME " . $output . "<br>";
+
+    // BLIND VULNERABILITY: User input in a shell command without output
+    shell_exec("ping -c 1 " . $username);
+
+    echo "WELCOME " . htmlspecialchars($username) . "<br>";
 
     $sql = "INSERT INTO users (username, email, password, role) VALUES (:username, :email, :password, 'user')";
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['username' => $username, 'email' => $email, 'password' => $password]);
-    
-    echo "Kulanacı Başarıyla oluşturuldu ! <a href='login.php'>Login here</a>";
+
+    echo "Kullanıcı Başarıyla oluşturuldu! <a href='login.php'>Login here</a>";
 }
 ?>
 <form method="POST">
