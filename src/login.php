@@ -59,16 +59,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!-- The form does not include any CSRF protection mechanism -->
 <form action="login.php" method="POST">
-    <label for="username">Username</label>
+    <label for="username">Kulanıcı Adı</label>
     <input type="text" name="username" id="username" placeholder="Enter your username" required><br>
 
-    <label for="password">Password</label>
+    <label for="password">Şifre</label>
     <input type="password" name="password" id="password" placeholder="Enter your password" required><br>
 
     <button type="submit">Login</button>
 </form>
 
-<p>Don't have an account? <a href="register.php">Register here</a></p>
+<p>Don't have an account? <a href="register.php">Burdan Kayıt Ol</a></p>
 
 </body>
 </html>

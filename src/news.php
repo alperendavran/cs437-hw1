@@ -48,7 +48,7 @@ $news = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </style>
 </head>
 <body>
-    <h1>News</h1>
+    <h1>Haberler</h1>
 
     <?php foreach ($news as $item): ?>
         <div class="news-item">
@@ -58,14 +58,14 @@ $news = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <img src="<?php echo htmlspecialchars($item['image']); ?>" alt="<?php echo htmlspecialchars($item['title']); ?>">
             <?php endif; ?>
             <?php if (!empty($item['link'])): ?>
-                <p><a href="<?php echo htmlspecialchars($item['link']); ?>" class="news-link" target="_blank">Read more</a></p>
+                <p><a href="<?php echo htmlspecialchars($item['link']); ?>" class="news-link" target="_blank">Daha fazlası için</a></p>
             <?php endif; ?>
-            <p><small>Published on: <?php echo htmlspecialchars($item['published_date']); ?></small></p>
+            <p><small>Şu tarihte Yayınlandı: <?php echo htmlspecialchars($item['published_date']); ?></small></p>
         </div>
     <?php endforeach; ?>
 
     <?php if (empty($news)): ?>
-        <p>No news available at the moment.</p>
+        <p>Admin haberi mevcut değil</p>
     <?php endif; ?>
 </body>
 </html>

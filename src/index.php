@@ -28,10 +28,10 @@ $search_query = isset($_GET['search']) ? strtolower(trim($_GET['search'])) : '';
                 <a href="admin/dashboard.php">Admin Dashboard</a>
             <?php endif; ?>
             
-            <a href="logout.php">Logout</a>
+            <a href="logout.php">Çıkış</a>
         <?php else: ?>
-            <a href="login.php">Login</a> 
-            <a href="register.php">Register</a>
+            <a href="login.php">Giriş</a> 
+            <a href="register.php">Kayıt Ol</a>
         <?php endif; ?>
     </nav>
 </header>
