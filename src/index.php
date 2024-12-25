@@ -17,12 +17,12 @@ $search_query = isset($_GET['search']) ? strtolower(trim($_GET['search'])) : '';
 <body>
 
 <header>
-    <h1>Welcome to the Turkish University Advice Website</h1>
+    <h1>Türkiyenin Üniversite Haberleri</h1>
     
     <!-- Check if user is logged in -->
     <nav>
         <?php if (isset($_SESSION['user_id'])): ?>
-            <p>Welcome, <?php echo $_SESSION['username']; ?>!</p>
+            <p>Hoş Geldiniz, <?php echo $_SESSION['username']; ?>!</p>
             
             <?php if ($_SESSION['role'] === 'admin'): ?>
                 <a href="admin/dashboard.php">Admin Dashboard</a>
@@ -37,7 +37,7 @@ $search_query = isset($_GET['search']) ? strtolower(trim($_GET['search'])) : '';
 </header>
 
 <main>
-    <h2>Recent University News</h2>
+    <h2>Son Üniversite Haberleri</h2>
 
     <!-- Search Form -->
     <form method="get" action="">
@@ -116,8 +116,8 @@ $search_query = isset($_GET['search']) ? strtolower(trim($_GET['search'])) : '';
 
     <!-- Add Buttons -->
     <div>
-        <a href="comments.php" class="button">Go to Comments</a>
-        <a href="news.php" class="button">View Admin News</a>
+        <a href="comments.php" class="button">Yorumlara Git</a>
+        <a href="news.php" class="button">Admin haberlerine Git</a>
     </div>
 </main>
 

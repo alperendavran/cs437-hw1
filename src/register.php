@@ -19,8 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 <form method="POST">
-    <input type="text" name="username" placeholder="Username" required><br>
-    <input type="email" name="email" placeholder="Email" required><br>
-    <input type="password" name="password" placeholder="Password" required><br>
+    <input type="text" name="username" placeholder="Kullanıcı Adı" required><br>
+    <input type="email" name="email" placeholder="E-Posta" required><br>
+    <input type="password" name="password" placeholder="Şifre" required><br>
     <button type="submit">Kayıt OL</button>
 </form>

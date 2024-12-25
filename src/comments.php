@@ -28,26 +28,26 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>University Comments</title>
+    <title>Universite Yorumları </title>
 </head>
 <body>
-    <h1>Leave a Comment about a University</h1>
+    <h1>Üniversite hakında yorum yayınlayınız</h1>
     <form method="POST" action="">
-        <label for="university_name">University Name:</label><br>
+        <label for="university_name">Üniversite Adı:</label><br>
         <input type="text" id="university_name" name="university_name" required><br><br>
         
-        <label for="commenter_name">Your Name:</label><br>
+        <label for="commenter_name">Adınız:</label><br>
         <input type="text" id="commenter_name" name="commenter_name" required><br><br>
         
-        <label for="comment">Comment:</label><br>
+        <label for="comment">Yorumunuz :</label><br>
         <textarea id="comment" name="comment" rows="4" required></textarea><br><br>
         
-        <button type="submit">Submit Comment</button>
+        <button type="submit">Yayınla</button>
     </form>
 
     <!-- Button to Redirect to index.php -->
     <form action="index.php" method="GET" style="margin-top: 20px;">
-        <button type="submit">Go to Index Page</button>
+        <button type="submit">Başlangıç Sayfasına geri dön</button>
     </form>
 
     <h2>Comments</h2>
