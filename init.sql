@@ -32,5 +32,7 @@ CREATE TABLE university_comments (
 INSERT INTO users (username, email, password, role)
 VALUES ('admin', 'admin@example.com', '$2y$10$DAi./j83/Rt1j2n9zxyN7e/3sYCzFEssyCyTFz8ZqMV6ty.mDPxHy', 'admin');
 
+INSERT INTO university_comments (university_name, commenter_name, comment, link, preview_html)
+VALUES('Harvard University', 'John Doe', 'An excellent university with world-class facilities.', '' );
 
 

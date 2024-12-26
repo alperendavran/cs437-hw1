@@ -20,8 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['filename'])) {
     to perform Path Traversal attacks.
 
     For example:
-    - Input: ../../supersecret/gizli_darbe_plani.txt
-    - Redirected URL: readfile.php?file=../../supersecret/gizli_darbe_plani.txt
+    - Input: ../../supersecret/supersecret.txt
+    - Redirected URL: readfile.php?file=..%2F..%2Fsupersecret%2Fsupersecret.txt
     */
     header("Location: readfile.php?file=" . urlencode($filename));
     exit;
@@ -38,7 +38,7 @@ if (isset($_GET['file'])) {
     the intended directory.
 
     Additionally:
-    - The user input is visible in the URL (e.g., ?file=..%2F..%2Fsupersecret%2Fgizli_darbe_plani.txt),
+    - The user input is visible in the URL (e.g., ?file=..%2F..%2Fsupersecret%2Fsupersecret.txt),
       providing direct feedback to the attacker about the effectiveness of their input.
     */
     $file_path = $base_dir . $filename;
